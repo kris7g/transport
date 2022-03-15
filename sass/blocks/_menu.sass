@@ -1,0 +1,109 @@
+.menu
+    min-height: 680px
+    background: url(../img/plane.jpg) center center/cover no-repeat
+    text-align: center
+.menu_wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+.menu_list
+    display: flex
+    justify-content: space-between
+    list-style-type: none
+    margin-top: 17px
+    padding: 6px 23px
+
+.menu_item
+    font-size: 15px
+    font-weight: 400
+    color: #ffffff
+    padding-right: 14px
+    padding-left: 14px
+    border-right: 1px dotted #ffffff
+    cursor: pointer
+    &:last-child
+        border-right: none
+    &:hover
+        color: $main-color
+        &::after
+            content: ''
+            display: block
+            width: 70%
+            height: 2px
+            background-color: $main-color
+            margin-top: 0px
+            transition: .5s all
+
+.menu_item > a
+    text-decoration: none
+    color: #fff
+    &:hover
+        color: $main-color
+        outline: none
+
+.menu
+    &_descr
+        font-size: 24px
+        font-weight: 300
+        color: #ffffff
+        text-align: center
+        margin-top: 58px
+    &__blocks
+        text-align: right
+        align-items: center
+h1
+    font-size: 65px
+    font-weight: 700
+    text-transform: uppercase
+    color: #ec644b
+    text-align: center
+h2
+    font-size: 38px
+    font-weight: 400
+    text-transform: uppercase
+    color: #ffffff
+    margin-top: 9px
+
+.menu2_wrapper
+    display: flex
+    justify-content: space-between
+    margin-top: 38px
+
+.menu2
+    &_block
+        max-width: 250px
+        height: 150px
+        text-align: center
+    &_icon
+        height: 70px
+.menu2_text
+    font-size: 16px
+    line-height: 22px
+    font-weight: 300
+    color: #ffffff
+
+.menu_button
+    margin-left: 26px
+    &_1
+        width: 230px
+        font-size: 15px
+
+.questions
+    font-size: 14px
+    font-weight: 300
+    color: #ffffff
+.contacts
+    display: flex
+    justify-content: center
+    align-items: center
+.contacts_nomer
+    font-size: 17px
+    font-weight: 700
+    color: #ffffff
+    &:hover
+        color: #fff
+
+.menu_button_1
+    display: block
+    margin: 0 auto
+    margin-top: 38px
