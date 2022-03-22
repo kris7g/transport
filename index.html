@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/style.min.css">
+    <script src="js/modal.js" defer></script>
+    <script src="js/scroll.js" defer></script>
+    <script src="js/slide.js" defer></script>
   </head>
 
   <body>
@@ -360,7 +363,7 @@
         <div class="carousel">
           <div class="container">
             <div class="carousel_slide">
-              <div class="carousel_inner">
+              <div class="carousel_inner fade">
                 <img class="carousel_img" src="img/woman1.jpg" alt="slide">
                 <div class="carousel_name">Анисимова Ольга</div>
                 <div class="carousel_text">Хочу рассказать о компании Global Opt. Самое главное что меня радует, это
@@ -368,21 +371,28 @@
                   материалов для отеля, ло дольших партий детской одежды. Буду продолжать пользтваьбся услугами даной
                   компании</div>
               </div>
-              <div class="carousel_inner">
+              <div class="carousel_inner fade">
                 <img class="carousel_img" src="img/woman2.jpg" alt="slide">
-                <div class="carousel_name">Куриленко Александр</div>
+                <div class="carousel_name">Медведева Евгения</div>
                 <div class="carousel_text">Хочу рассказать о компании Global Opt. Самое главное что меня радует, это
                   быстрый поиск и анализ определенного товара. Доставляла через компанию уже много раз, от расходных
                   материалов для отеля, ло дольших партий детской одежды. Буду продолжать пользтваьбся услугами даной
                   компании</div>
               </div>
-              <div class="carousel_inner">
-                <img class="carousel_img" src="img/woman1.jpg" alt="slide">
-                <div class="carousel_name">Савченко Дмитрий</div>
+              <div class="carousel_inner fade">
+                <img class="carousel_img" src="img/woman3.jpg" alt="slide">
+                <div class="carousel_name">Горбушина Кристина</div>
                 <div class="carousel_text">Хочу рассказать о компании Global Opt. Самое главное что меня радует, это
                   быстрый поиск и анализ определенного товара. Доставляла через компанию уже много раз, от расходных
-                  материалов для отеля, ло дольших партий детской одежды. Буду продолжать пользтваьбся услугами даной
+                  материалов для отеля, ло дольших партий детской одежды. Буду продолжать пользтваьбся услугами
+                  даной
                   компании</div>
+              </div>
+              <div class="prev">
+                <div class="arrow-left"></div>
+              </div>
+              <div class="next">
+                <div class="arrow-right"></div>
               </div>
             </div>
           </div>
@@ -429,7 +439,7 @@
       </div>
     </footer>
     <div class="overlay">
-      <div class="modal">
+      <div class="modal" id="modal">
         <h3>Заполните форму обратной связи</h3>
         <div class="modal__close">X</div>
         <div class="feedback">
@@ -442,14 +452,31 @@
           <button class="application">Оставить заявку</button>
         </div>
       </div>
-      <div class="mod">
-        <h3>Рассчитайте стоимость груза</h3>
-        <form action="">
-          <input type="text" class="mod__input" placeholder="Вес груза, кг">
-          <input type="text" placeholder="Габариты груза, см">
-        </form>
-        <span>Стоимость доставки за 1 км</span>
-        <div class="mod__sales"></div>
+    </div>
+    <div class="overlay">
+      <div class="calc">
+        <div class="modal__close">X</div>
+        <div class="cacl__block">
+          <div class="distance__block">Расстояние, км</div>
+          <input type="number" class="distance__input">
+        </div>
+        <div class="cacl__block">
+          <div class="distance__block">Вес груза, кг</div>
+          <input type="number" class="distance__input">
+        </div>
+        <div class="calc__block">
+          <div class="distance__block">Выберите способ доставки</div>
+          <select name="способ" id="way">
+            <option value="1">Морем</option>
+            <option value="1.1">ЖД</option>
+            <option value="1.2">Авто</option>
+            <option value="1.3">Авиа</option>
+          </select>
+        </div>
+        <div class="total__price">
+          <div class="total__block">Ориентировочная цена доставки</div>
+          <span class="total"></span>
+        </div>
       </div>
     </div>
 
@@ -458,11 +485,7 @@
       <img src="icons/circle-up-regular.svg" alt="circle">
     </a>
 
-    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/slick.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/jquery.maskedinput.min.js"></script>
     <script src="js/script.js"></script>
 
   </body>

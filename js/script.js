@@ -1,29 +1,7 @@
-$(document).ready(function(){
-    $('.carousel_slide').slick({
-      speed: 1200,
-      adaptiveHeight: true,
-      prevArrow: '<button type="button" class="slick-prev"><img src="icons/left.png"></button>',
-      nextArrow: '<button type="button" class="slick-next"><img src="icons/right.png"></button>',
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            dots: true,
-            arrows: false
-          }
-        }
-      ]
-    });
-});
 
 window.addEventListener('DOMContentLoaded', function() {
-  let btnMe = document.querySelectorAll('.menu_button');
-      overlay = document.querySelector('.overlay');
-      close = document.querySelector('.modal__close');
-      btnCalc = document.querySelector('.menu_button_1');
-      pageup = document.querySelector('.pageup');
-      hamburger = document.querySelector('.hamburger');
-      menu = document.querySelector('.menu_list');
+  const hamburger = document.querySelector('.hamburger'),
+      menu = document.querySelector('.menu_list'),
       menuItem = document.querySelectorAll('.menu_item');
 
   hamburger.addEventListener('click', function() {
@@ -38,34 +16,42 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  btnMe[0].addEventListener('click', function() {
-  overlay.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-  });
+  // calc
+  let distance = document.querySelectorAll('.distance__input')[0],
+      wT = document.querySelectorAll('.distance__input')[1],
+      totalValue = document.querySelector('.total'),
+      way = document.getElementById('way'),
+      distanceSum = 0,
+      wtSum = 0,
+      total = 0;
+  
+  totalValue.innerHTML = 0;
 
-  btnMe[1].addEventListener('click', function() {
-    overlay.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    });
-
-  close.addEventListener('click', function() {
-    overlay.style.display = 'none';
-    document.body.style.overflow = '';
-  });
-
-  btnCalc.addEventListener('click', function() {
-    overlay.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  });
-  close.addEventListener('click', function() {
-    overlay.style.display = 'none';
-    document.body.style.overflow = '';
-  });
-  pageup.addEventListener('scroll', function() {
-    if (scrollTop() > 1600) {
-      pageup.style.display = 'block';
+  distance.addEventListener('change', function() {
+    distanceSum = +this.value;
+    total = (distanceSum * wtSum)*100;
+    if(wT.value == '') {
+      totalValue.innerHTML = 0;
     } else {
-      pageup.style.display = 'none';
+      totalValue.innerHTML = total;
+    }
+  });
+  wT.addEventListener('change', function() {
+    wtSum = +this.value;
+    total = (distanceSum * wtSum)*100;
+    if(distance.value == '') {
+      totalValue.innerHTML = 0;
+    } else {
+      totalValue.innerHTML = total;
+    }
+  });
+  
+  way.addEventListener('change', function() {
+    if(wT.value == '' || distance.value == '') {
+      totalValue.innerHTML = 0;
+    } else {
+      let a = total;
+      totalValue.innerHTML = Math.round(a * this.options[this.selectedIndex].value);
     }
   });
 });
